@@ -95,6 +95,8 @@ load_data >> preprocess >> train_model >> evaluate_model >> save_results
 - Тестовый запуск конкретной задачи (например, train_model) на определенную дату: airflow tasks test pipeline_dag train_model 2025-06-29
 - Просмотр статуса DAG и задач через веб-интерфейс по адресу: http://localhost:8080
 
+<img width="1142" alt="Screenshot 2025-06-29 at 20 21 19" src="https://github.com/user-attachments/assets/848884c3-82a0-4e67-8e36-49d5e124fc10" />
+
 
 ##  Этап 4. Интеграция с облачным хранилищем или локальным диском
 #### Интеграция с хранилищем
