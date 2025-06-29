@@ -1,15 +1,43 @@
 # breast-cancer-ml-pipeline
 Автоматизированный ETL-проект для диагностики рака легких
 
-
-*Для запуска:*
-
+## Запуск
+#### Требования
+- Python 3.10
+- Git
+- Airflow (Apache Airflow)
+#### 1. Клонирование репозитория
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+git clone https://github.com/akukulik/breast-cancer-ml-pipeline.git
+cd breast-cancer-ml-pipeline
+```
+#### 2. Создание виртуального окружения и установка зависимостей
+```bash
+python3.10 -m venv venv_airflow
+source venv_airflow/bin/activate   # для macOS/Linux
+# или
+venv_airflow\Scripts\activate.bat  # для Windows
+pip install --upgrade pip
 pip install -r requirements.txt
-airflow standalone
-# в Airflow UI включить и выполнить DAG 'pipeline_dag'
+```
+#### 3. Настройка Airflow
+```bash
+airflow db init
+airflow users create \
+    --username admin \
+    --firstname Admin \
+    --lastname User \
+    --role Admin \
+    --email admin@example.com
+```
+#### 4.Запуск DAG вручную
+- Открой в браузере: http://localhost:8080
+- Авторизуйся
+- В интерфейсе Airflow найди DAG pipeline_dag и запусти его.
+
+Или: 
+```bash
+airflow tasks test pipeline_dag task_id YYYY-MM-DD
 ```
 
 ## Этап 1. Планирование пайплайна
