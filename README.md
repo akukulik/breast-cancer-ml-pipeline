@@ -8,11 +8,13 @@
 - Цель: обучить модель LogisticRegression для автоматического выявления злокачественных случаев с высокой точностью, полнотой и F1-мерой.
 
 #### Схематичное представление пайплайна
+```mermaid
 flowchart TD
     A[Load Data] --> B[Preprocess]
     B --> C[Train Model]
     C --> D[Evaluate]
     D --> E[Save Results]
+```
 
 #### Краткое описание шагов
 - Load Data: Загружаем CSV-файл (data.csv) с диагностическими данными в pandas DataFrame.
@@ -20,3 +22,13 @@ flowchart TD
 - Train Model: Разбиваем X и y на обучающую и тестовую выборки (80/20). Обучаем модель LogisticRegression на тренировочных данных.
 - Evaluate: Предсказываем на тестовом наборе. Считаем метрики качества: Accuracy, Precision, Recall, F1.
 - Save Results: Сохраняем модель (model.pkl) и метрики (metrics.json) в каталог results/.
+
+*Для запуска:*
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+airflow standalone
+# в Airflow UI включить и выполнить DAG 'pipeline_dag'
+```
